@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Guess</title>
+    <link rel="stylesheet" href="css\styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+<h1 style="text-align: center">WORD GUESS</h1>
+<div class="container box">
+    <h2 th:text="${randomWord}"></h2>
+
+    <div class="form-container center">
+        <form action="home" method="get">
+            <label>Guess a letter in the word: </label>
+            <label>
+                <input type="text" name="guessChar" id="guessChar">
+            </label>
+            <input type="submit" value="Try" id="try" class="button">
+        </form>
+    </div>
+</div>
+<div class="remaining-tries">
+    <h3 th:text="'Remaining: '+ ${remainingTry}" style="text-align: center"></h3>
+    <input type="button" class="button" value="Play Again" id="replay" onclick="playAgain()" >
+</div>
+</body>
+</html>

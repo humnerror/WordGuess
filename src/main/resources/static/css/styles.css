@@ -1,0 +1,70 @@
+/* Style for the message box */
+/* Styles for the main container */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Styles for the title */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Styles for the box */
+.box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Styles for the guess form container */
+.form-container {
+    text-align: center;
+}
+
+/* Styles for the label */
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Styles for the input field */
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styles for the try button */
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the try button */
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for the remaining tries */
+.remaining-tries {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styles for the play again button */
+.play-again {
+    text-align: center;
+    margin-top: 20px;
+}
