@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Word Guess</title>
-    <link rel="stylesheet" href="css\styles.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+
+        function playAgain() {
+            console.log("play again is working")
+            window.location.href = "http://localhost:8080/playAgain"
+        }
+
+        window.onload = function GameOver() {
+            if ([[${remainingTry}]] <= 0) {
+                alert("Game Over!")
+                document.getElementById("guessChar").disabled = true;
+                document.getElementById("try").disabled = true;
+            }
+        }
+
+        window.onload = function GameWin() {
+            if ([[${winOrLose}]]) {
+                console.log([[${winOrLose}]])
+                alert("You Won!")
+            }
+        }
+
+
+
+    </script>
 </head>
 <body>
 
@@ -23,7 +47,7 @@
     </div>
 </div>
 <div class="remaining-tries">
-    <h3 th:text="'Remaining: '+ ${remainingTry}" style="text-align: center"></h3>
+    <h3 th:text="'Chances: '+ ${remainingTry}" style="text-align: center"></h3>
     <input type="button" class="button" value="Play Again" id="replay" onclick="playAgain()" >
 </div>
 </body>

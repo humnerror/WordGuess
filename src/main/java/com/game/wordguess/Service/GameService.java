@@ -52,14 +52,4 @@ public class GameService {
         return isCorrect;
     }
 
-    public boolean GameWin() {
-        boolean res = true;
-        for (char c : allCharacterWord) {
-            if (c == '_') {
-                res = false;
-                break;
-            }
-        }
-        return res;
-    }
 }
