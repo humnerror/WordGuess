@@ -23,7 +23,7 @@ public class GameController {
     @Autowired
     private GameUtils utils;
 
-    String randomWord;
+
 
     @GetMapping("/home")
     public String ShowHomePage(@RequestParam(value = "guessChar", required = false) String word, Model model) {
@@ -49,7 +49,7 @@ public class GameController {
 
         model.addAttribute("remainingTry", utils.TriesRemaining());
 
-        if(!randomWord.contains("_")){Win = true;}
+        if(!randomWord.contains("_")&&utils.TriesRemaining()>0){Win = true;}
 
         model.addAttribute("winOrLose",Win);
 

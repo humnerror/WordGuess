@@ -12,24 +12,21 @@
         }
 
         window.onload = function GameOver() {
-            if ([[${remainingTry}]] <= 0) {
+            if ([[${remainingTry}]] === 0) {
                 alert("Game Over!")
                 document.getElementById("guessChar").disabled = true;
                 document.getElementById("try").disabled = true;
-            }
-        }
+            } else if ([[${winOrLose}]]) {
 
-        window.onload = function GameWin() {
-            if ([[${winOrLose}]]) {
                 console.log([[${winOrLose}]])
                 alert("You Won!")
             }
         }
 
 
-
     </script>
 </head>
+
 <body>
 
 <h1 style="text-align: center">WORD GUESS</h1>
@@ -48,7 +45,7 @@
 </div>
 <div class="remaining-tries">
     <h3 th:text="'Chances: '+ ${remainingTry}" style="text-align: center"></h3>
-    <input type="button" class="button" value="Play Again" id="replay" onclick="playAgain()" >
+    <input type="button" class="button" value="Play Again" id="replay" onclick="playAgain()">
 </div>
 </body>
 </html>
