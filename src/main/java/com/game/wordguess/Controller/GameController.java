@@ -1,5 +1,6 @@
 package com.game.wordguess.Controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.game.wordguess.Service.GameService;
 import com.game.wordguess.Utils.GameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class GameController {
 
 
     @GetMapping("/home")
-    public String ShowHomePage(@RequestParam(value = "guessChar", required = false) String word, Model model) {
+    public String ShowHomePage(@RequestParam(value = "guessChar", required = false) String word, Model model) throws JsonProcessingException {
 
         String randomWord = service.toString();
 
@@ -46,6 +47,9 @@ public class GameController {
             }
         }
 
+        System.out.println("Meaning: "+service.gettingDefinition());
+
+        model.addAttribute("meaning",service.gettingDefinition());
 
         System.out.println("Remaining tries: " + utils.TriesRemaining());
 

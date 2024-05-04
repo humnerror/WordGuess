@@ -11,7 +11,7 @@
             window.location.href = "http://localhost:8080/playAgain"
         }
 
-        window.onload = function GameOver() {
+        window.onload = function() {
             if ([[${remainingTry}]] === 0) {
                 alert("Game Over!")
                 document.getElementById("guessChar").disabled = true;
@@ -32,6 +32,8 @@
 <div class="container box">
     <h2 th:text="${randomWord}"></h2>
 
+    <p id="timer"></p>
+
     <div class="form-container center">
         <form action="home" method="get">
             <label>Guess a letter or word: </label>
@@ -43,7 +45,11 @@
     </div>
 </div>
 
-<!-- Display total letters in a separate paragraph -->
+<div class="total-letters">
+    <h3 th:text="'Meaning: '+ ${meaning}" style="text-align: center"></h3>
+</div>
+
+
 <div class="total-letters">
     <h3 th:text="'Length: '+ ${totalLetters}" style="text-align: center"></h3>
 </div>
