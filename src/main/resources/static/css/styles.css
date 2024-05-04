@@ -68,3 +68,13 @@ input[type="text"] {
     text-align: center;
     margin-top: 20px;
 }
+
+.total-letters {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+.total-letters p {
+    font-size: 16px; /* Adjust as needed */
+    color: #333; /* Adjust the color as needed */
+}

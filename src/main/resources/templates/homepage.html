@@ -17,7 +17,6 @@
                 document.getElementById("guessChar").disabled = true;
                 document.getElementById("try").disabled = true;
             } else if ([[${winOrLose}]]) {
-
                 console.log([[${winOrLose}]])
                 alert("You Won!")
             }
@@ -35,7 +34,7 @@
 
     <div class="form-container center">
         <form action="home" method="get">
-            <label>Guess a letter in the word: </label>
+            <label>Guess a letter or word: </label>
             <label>
                 <input type="text" name="guessChar" id="guessChar">
             </label>
@@ -43,6 +42,12 @@
         </form>
     </div>
 </div>
+
+<!-- Display total letters in a separate paragraph -->
+<div class="total-letters">
+    <h3 th:text="'Length: '+ ${totalLetters}" style="text-align: center"></h3>
+</div>
+
 <div class="remaining-tries">
     <h3 th:text="'Chances: '+ ${remainingTry}" style="text-align: center"></h3>
     <input type="button" class="button" value="Play Again" id="replay" onclick="playAgain()">
