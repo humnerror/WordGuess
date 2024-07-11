@@ -14,21 +14,22 @@ import java.util.Random;
 @Scope("prototype")
 public class GameService {
 
-    private final Random random = new Random();
 
-    private final WordAPI api = new WordAPI();
+    Random random = new Random();
+
+    WordAPI api = new WordAPI();
 
     private final char[] allCharacterWord;
 
-    String randomWord;
+    public String randomWord;
 
-    String answer;
+    public String answer;
 
 
     public GameService() throws IOException {
         String[] arrayOfWords = new FileToArrayConverter().readFileLinesToArray();
         randomWord = arrayOfWords[random.nextInt(arrayOfWords.length)];
-        answer=randomWord;
+        answer = randomWord;
         System.out.println("The random word is: " + randomWord);
         allCharacterWord = new char[randomWord.length()];
     }
@@ -36,20 +37,21 @@ public class GameService {
     @Override
     public String toString() {
 
-        String returnPage = "";
+        StringBuilder returnPage = new StringBuilder();
 
         for (char e : allCharacterWord) {
             if (e == '\u0000') {
-                returnPage += "_";
+                returnPage.append("_");
             } else {
-                returnPage += e;
+                returnPage.append(e);
             }
-            returnPage += " ";
+            returnPage.append(" ");
         }
 
 
-        return returnPage;
+        return returnPage.toString();
     }
+
     public String gettingDefinition() throws JsonProcessingException {
         Map<String, String> stringMap = api.GettingDefinition(randomWord);
         return stringMap.get(randomWord);
@@ -66,10 +68,10 @@ public class GameService {
         return isCorrect;
     }
 
-    public boolean userGuessingFullWord(String word){
+    public boolean userGuessingFullWord(String word) {
         boolean isCorrect = true;
-        System.out.println(word.length()== allCharacterWord.length);
-        if(word.length()== answer.length()) {
+        System.out.println(word.length() == allCharacterWord.length);
+        if (word.length() == answer.length()) {
             char[] chars = word.toCharArray();
             for (int i = 0; i < word.length(); i++) {
                 if (chars[i] != answer.charAt(i)) {
@@ -80,7 +82,8 @@ public class GameService {
         }
         return isCorrect;
     }
-    public int totalLetters(){
+
+    public int totalLetters() {
         return randomWord.length();
     }
 

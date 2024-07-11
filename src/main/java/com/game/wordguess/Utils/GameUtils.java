@@ -8,8 +8,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class GameUtils {
 
+
+    private final ConfigurableApplicationContext context;
+
     @Autowired
-    private ConfigurableApplicationContext context;
+    public GameUtils(ConfigurableApplicationContext context) {
+        this.context = context;
+    }
+
     private int Max_Tries = 5;
 
     public void reduceTry() {

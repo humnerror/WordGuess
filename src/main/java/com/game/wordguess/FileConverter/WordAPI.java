@@ -3,12 +3,14 @@ package com.game.wordguess.FileConverter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
+@Component
 public class WordAPI {
 
     private final RestTemplate template = new RestTemplate();
@@ -25,7 +27,7 @@ public class WordAPI {
         //Creating a ObjectMapper instance
         ObjectMapper mapper = new ObjectMapper();
 
-        //Mapping the JSON respone as nodes
+        //Mapping the JSON response as nodes
         JsonNode node = mapper.readTree(JSONResponse);
 
         //Extracting the word string

@@ -9,9 +9,11 @@ import java.util.Arrays;
 
 public class FileToArrayConverter {
 
+    String filePath = "static/file/words.txt";
+
     public String[] readFileLinesToArray() throws IOException {
 
-        String filePath = "static/file/words.txt";
+
         // Load the file from the classpath
         ClassPathResource resource = new ClassPathResource(filePath);
 
@@ -21,9 +23,10 @@ public class FileToArrayConverter {
         // Split the file content into lines
         String[] lines = fileContent.split("\\r?\\n");
 
-        lines = Arrays.stream(lines).filter(obj -> (obj.length() > 4 && obj.length() < 14)).toArray(String[]::new);
 
-        return lines;
+        return Arrays.stream(lines)
+                .filter(obj -> (obj.length() > 4 && obj.length() < 14))
+                .toArray(String[]::new);
     }
 
 }

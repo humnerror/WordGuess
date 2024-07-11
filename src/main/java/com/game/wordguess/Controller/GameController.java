@@ -47,6 +47,7 @@ public class GameController {
             }
         }
 
+
         System.out.println("Meaning: "+service.gettingDefinition());
 
         model.addAttribute("meaning",service.gettingDefinition());
