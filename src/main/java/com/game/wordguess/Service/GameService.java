@@ -2,12 +2,15 @@ package com.game.wordguess.Service;
 
 import com.game.wordguess.FileConverter.FileToArrayConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
+
 
 @Service
 @Scope("prototype")
@@ -15,8 +18,6 @@ public class GameService {
 
     @Autowired
     private WordService wordService;
-
-    private final Random random = new Random();
 
     private final char[] allCharacterWord;
 
@@ -27,7 +28,7 @@ public class GameService {
 
     public GameService() throws IOException {
         String[] arrayOfWords = new FileToArrayConverter().readFileLinesToArray();
-        randomWord = arrayOfWords[random.nextInt(arrayOfWords.length)];
+        randomWord = arrayOfWords[new Random().nextInt(arrayOfWords.length)];
         answer = randomWord;
         System.out.println("The random word is: " + randomWord);
         allCharacterWord = new char[randomWord.length()];
