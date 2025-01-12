@@ -1,23 +1,22 @@
 package com.game.wordguess.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.game.wordguess.FileConverter.FileToArrayConverter;
-import com.game.wordguess.FileConverter.WordAPI;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.List;
 import java.util.Random;
 
 @Service
 @Scope("prototype")
 public class GameService {
 
+    @Autowired
+    private WordService wordService;
 
-    Random random = new Random();
-
-    WordAPI api = new WordAPI();
+    private final Random random = new Random();
 
     private final char[] allCharacterWord;
 
@@ -36,9 +35,7 @@ public class GameService {
 
     @Override
     public String toString() {
-
         StringBuilder returnPage = new StringBuilder();
-
         for (char e : allCharacterWord) {
             if (e == '\u0000') {
                 returnPage.append("_");
@@ -47,15 +44,13 @@ public class GameService {
             }
             returnPage.append(" ");
         }
-
-
         return returnPage.toString();
     }
 
-    public String gettingDefinition() throws JsonProcessingException {
-        Map<String, String> stringMap = api.GettingDefinition(randomWord);
-        return stringMap.get(randomWord);
+    public List<String> gettingDefinitionList(){
+        return wordService.getWordMeaning(randomWord);
     }
+
 
     public boolean userGuessing(char charAt) {
         boolean isCorrect = false;

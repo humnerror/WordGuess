@@ -46,7 +46,8 @@
 </div>
 
 <div class="total-letters">
-    <h3 th:text="'Meaning: '+ ${meaning}" style="text-align: center"></h3>
+    <h3 th:text="'Meaning: '"></h3>
+    <p th:each="mean : ${meaning}" th:text="${mean}" style="text-align: center"></p>
 </div>
 
 
